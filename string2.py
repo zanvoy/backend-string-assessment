@@ -3,6 +3,8 @@
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
 
+__author__ = 'Mike Gabbard'
+
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
@@ -19,7 +21,11 @@
 
 def verbing(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    if len(s) < 4:
+        return s
+    if s[-3:] == 'ing':
+        return s + 'ly'
+    return s + 'ing'
 
 
 # E. not_bad
@@ -32,7 +38,11 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    not_index = s.find('not')
+    bad_index = s.find('bad')
+    if not_index != -1 and bad_index != -1 and not_index < bad_index:
+        return s[:not_index] + 'good' + s[bad_index+3:]
+    return s
 
 
 # F. front_back
@@ -44,7 +54,16 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    index_a = float(len(a))/2
+    index_b = float(len(b))/2
+    if index_a % 1 != 0:
+        index_a = int(index_a + 0.5)
+    if index_b % 1 != 0:
+        index_b = int(index_b + 0.5)
+    index_a = int(index_a)
+    index_b = int(index_b)
+    return a[:index_a] + b[:index_b] + a[index_a:] + b[index_b:]
+
 
 
 # Provided simple test() function used in main() to print

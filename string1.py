@@ -3,6 +3,9 @@
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
 
+__author__ = 'Mike Gabbard'
+
+
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
@@ -25,8 +28,9 @@
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
     """Your code goes here.  Edit this docstring."""
-    return
-
+    if count > 9:
+        return 'Number of donuts: many'
+    return 'Number of donuts: ' + str(count)
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
@@ -35,7 +39,9 @@ def donuts(count):
 # is less than 2, return instead the empty string.
 def both_ends(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    if len(s) < 3:
+        return ''
+    return s[:2] + s[-2:]
 
 
 # C. fix_start
@@ -49,7 +55,10 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    start_car = s[0]
+    s = s.replace(start_car, '*')
+    s = s.replace('*',start_car ,1)
+    return s
 
 
 # D. MixUp
@@ -61,7 +70,7 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    return b[:2]+a[2:] + ' ' + a[:2]+b[2:]
 
 
 # Provided simple test() function used in main() to print
